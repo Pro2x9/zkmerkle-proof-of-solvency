@@ -7,6 +7,7 @@ import (
 
 	"github.com/consensys/gnark-crypto/ecc/bn254/fr"
 	"github.com/consensys/gnark-crypto/ecc/bn254/fr/poseidon"
+	"gorm.io/hints"
 )
 
 const (
@@ -81,6 +82,16 @@ var (
 		"bome": true,
 		"1MBABYDOGE": true,
 		"1mbabydoge": true,
+		"HMSTR": true,
+		"hmstr": true,
+		"WLFI": true,
+		"wlfi": true,
+		"PUMP": true,
+		"pump": true,
+		"MONKY": true,
+		"monky": true,
+		"1000CHEEMS": true,
+		"1000cheems": true,
 	}
 	// the key is the number of assets user own
 	// the value is the number of batch create user ops
@@ -92,6 +103,7 @@ var (
 
 	// one Fr element is 252 bits, it contains 16 16-bit elements at most
 	PowersOfSixteenBits           [15]fr.Element
+	MaxExecutionTimeHint         = hints.New("MAX_EXECUTION_TIME(10000)")
 )
 
 func init() {
